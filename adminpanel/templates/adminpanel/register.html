@@ -1,0 +1,43 @@
+{% extends "adminbase.html" %}
+{% load staticfiles %}
+
+{% block title %}
+<title>Create an Admin Account</title>
+{% endblock %}
+
+{% block content %}
+<section class="m--top">
+        <div class="container">
+          <h2 class="primary__title center">Create an Admin Account</h2>
+            <form action="" method="post">
+              {% csrf_token %}
+              {% if error %}
+                <div class="error">
+                    <div class="error__container">
+                        <span class="error__message">{{error}}</span>
+                        <div class="error__close"><i class="fa fa-close"></i></div>
+                    </div>
+                </div>
+                {% endif %}
+                <div class="field">
+                    <label for="">Names</label>
+                    <input type="text" name="names" required>
+                </div>
+                <div class="field">
+                    <label for="">Email</label>
+                    <input type="email" name="email" required>
+                </div>
+                <div class="field">
+                    <label for="">Password</label>
+                    <input type="password" name="password" required>
+                </div>
+                <div class="field">
+                    <label for="">Confirm Password</label>
+                    <input type="password" name="confirm" required>
+                </div>
+                <input type="submit" value="Sign In">
+            </form>
+        </div>
+
+    </section>
+{% endblock %}

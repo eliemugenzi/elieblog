@@ -1,0 +1,59 @@
+{% extends "base.html" %} {% load staticfiles %} {% block title %}
+<title>{{ post.title }}</title> {% endblock %} {% block content %}
+
+<section id="blog" class="m--top">
+  <div class="container">
+    <div class="post">
+      <div class="post__overlay">
+        <img src="{{post.photo.url}}" alt="" />
+        <div class="post__desc">
+          <h3 class="white__title center p--20">{{ post.title }}</h3>
+        </div>
+      </div>
+      <div class="post__content">
+        <p class="paragraph"><i>{{ post.description }}</i></p>
+        <p class="paragraph">{{ post.content }}</p>
+      </div>
+      <div class="post__comment">
+            <div class="post__comment--list">
+              <div class="post__comment--title">
+                <h2 class="primary">Comments ({{comments|length}})</h2>
+                <div class="underline"></div>
+              </div>
+              {% if comments %}
+              {% for comment in comments %}
+              <div class="post__comment--comments">
+                <div class="post__comment--header">
+                    <h3 class="secondary">{{comment.user_names}}</h3>
+                    <span class="primary">{{comment.timestamp}}</span>
+                </div>
+                <p class="paragraph">{{comment.comment}}</p>
+              </div>
+              {% endfor %}
+              {% endif %}
+            </div>
+            {% if request.session.email %}
+            <div class="post__comment--form">
+              <form action="/comment/?slug={{post.slug}}" method="post">
+                {% csrf_token %}
+                <div class="field">
+                  <textarea  id="" cols="30" rows="10" placeholder="Your Comment" name="comment"></textarea>
+                </div>
+                <input type="submit" value="Send"/>
+              </form>
+            </div>
+            {% else %}
+            <div class="post__comment--info">
+              <p>Need to leave a comment?</p> <br>
+              <a href="/auth/signin/" class="button__primary">
+                <i class="fa fa-sign-in"></i> &nbsp;
+                <span>Sign In</span>
+              </a>
+            </div>
+            {% endif %}
+
+          </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

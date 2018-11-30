@@ -1,0 +1,43 @@
+{% extends "adminbase.html" %}
+{% load staticfiles %}
+
+{% block title %}
+<title>All Posts</title>
+{% endblock %}
+
+{% block content %}
+<section id="featured" class="m--top">
+       <div class="container">
+           <h2 class="primary">All Posts</h2>
+           <div class="underline"></div>
+           <div class="posts">
+             {% if posts %}
+             {% for post in posts %}
+             <div class="posts__item">
+                 <h4 class="posts__title secondary__title">
+                     {{post.title}}
+                 </h4>
+                 <div class="posts__category">
+                     <span class="posts__category--text">{{post.category}}</span>
+                 </div>
+                 <div class="posts__description">
+                     <img src="{{post.photo.url}}" alt="" />
+                     <div class="paragraph">
+                         <p>
+                             {{post.description}}
+                         </p>
+                         <a href="/cms/update/?slug={{post.slug}}" class="link">Update</a>
+                         <a href="/cms/delete/?slug={{post.slug}}" class="link">Delete</a>
+                     </div>
+                 </div>
+             </div>
+             {% endfor %}
+             {% else %}
+             <div class="container">
+               <p class="secondary">No Posts Yet!</p>
+             </div>
+             {% endif %}
+           </div>
+       </div>
+   </section>
+{% endblock %}

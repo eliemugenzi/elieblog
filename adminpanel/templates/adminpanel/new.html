@@ -1,0 +1,37 @@
+{% extends "adminbase.html" %}
+{% load staticfiles %}
+{% block title %}
+<title>Write a new blog post!</title>
+{% endblock %}
+
+{% block content %}
+<section class="m--top">
+     <div class="container">
+       <h2 class="primary__title center">Add a new Blog Post!</h2>
+       <form action="" method="post">
+         {% csrf_token %}
+         <div class="field">
+           <label for="">Title</label>
+           <input type="text" name="title" required />
+         </div>
+         <div class="field">
+           <label for="">Description</label>
+           <textarea name="description" cols="20" rows="5" required></textarea>
+         </div>
+         <div class="field">
+           <label for="">Content</label>
+           <textarea name="content" cols="30" rows="8" required></textarea>
+         </div>
+         <div class="field">
+           <label for="">Photo</label>
+           <input type="file" name="photo" required />
+         </div>
+         <div class="field">
+           <label for="">Category</label>
+           <input type="text" name="category" required />
+         </div>
+         <input type="submit" value="Save" />
+       </form>
+     </div>
+   </section>
+{% endblock %}

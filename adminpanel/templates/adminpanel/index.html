@@ -1,0 +1,31 @@
+{% extends "adminbase.html" %}
+{% load staticfiles %}
+{% block title %}
+<title>Welcome Admin</title>
+{% endblock %}
+
+{% block content %}
+<section id="home" class="m--top">
+      <div class="intro">
+        <h2 class="primary__title">Welcome Admin</h2>
+        <div class="paragraph">Hope you enjoy everything I post here...</div>
+        {% if request.session.admin %}
+        <div class="user">
+          <h4 class="secondary">
+            Signed in as <span class="user__name dark">{{names}}</span>
+          </h4>
+          <a href="/cms/logout/" class="button__primary">
+            <i class="fa fa-sign-out"></i> &nbsp; <span>Log Out</span>
+          </a>
+        </div>
+        {% else %}
+        <div class="user">
+          <h4 class="secondary">You need to Login first</h4>
+          <a href="/cms/login/" class="button__primary">
+            <i class="fa fa-sign-in"></i> &nbsp; <span>Sign In</span>
+          </a>
+        </div>
+        {% endif %}
+      </div>
+    </section>
+{% endblock %}

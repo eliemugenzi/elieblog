@@ -1,0 +1,36 @@
+{% extends "adminbase.html" %}
+{% load staticfiles %}
+
+{% block title %}
+<title>Update this Post</title>
+{% endblock %}
+{% block content %}
+<section class="m--top">
+     <div class="container">
+       <h2 class="primary__title center">Update Post!</h2>
+       <form action="" method="post">
+         <div class="field">
+           <label for="">Title</label>
+           <input type="text" name="title" value="{{post.title}}" required />
+         </div>
+         <div class="field">
+           <label for="">Description</label>
+           <textarea name="description" cols="20" rows="5" required>{{post.description}}</textarea>
+         </div>
+         <div class="field">
+           <label for="">Content</label>
+           <textarea name="content" cols="30" rows="8" required>{{post.content}}</textarea>
+         </div>
+         <div class="field">
+           <label for="">Photo</label>
+           <input type="file" name="photo" />
+         </div>
+         <div class="field">
+           <label for="">Category</label>
+           <input type="text" name="category" value="{{post.category}}" required />
+         </div>
+         <input type="submit" value="Save" />
+       </form>
+     </div>
+   </section>
+{% endblock %}

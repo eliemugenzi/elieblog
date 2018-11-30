@@ -1,0 +1,36 @@
+{% extends "base.html" %} {% load staticfiles %} {% block title %}
+<title>Join Us</title> {% endblock %} {% block content %}
+<section id="register">
+  <div class="container">
+    <h2 class="primary__title center">Create Account</h2>
+    {% if error %}
+    <div class="error">
+      <div class="error__container">
+        <span class="error__message">{{ error }}</span>
+        <div class="error__close"><i class="fa fa-close"></i></div>
+      </div>
+    </div>
+    {% endif %}
+    <form action="" method="POST">
+      {%csrf_token%}
+      <div class="field">
+        <label for="">Your Names</label>
+        <input type="text" name="names" id="" required />
+      </div>
+      <div class="field">
+        <label for="">Email</label>
+        <input type="email" name="email" id="" required />
+      </div>
+      <div class="field">
+        <label for="">Password</label>
+        <input type="password" name="password" id="" required />
+      </div>
+      <div class="field">
+        <label for="">Confirm Password</label>
+        <input type="password" name="confirm" id="" required />
+      </div>
+      <input type="submit" value="Register" />
+    </form>
+  </div>
+</section>
+{% endblock %}

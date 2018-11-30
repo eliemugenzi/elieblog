@@ -1,0 +1,19 @@
+{% extends "adminbase.html" %}
+{% load staticfiles %}
+
+{% block title %}
+<title>Unauthorized Access</title>
+{% endblock %}
+{% block content %}
+<section id="home" class="m--top">
+        <div class="intro">
+            <div class="user">
+                <h4 class="secondary">Unothaurized Access</h4>
+                <a href="/cms/login/" class="button__primary">
+                    <i class="fa fa-sign-out"></i> &nbsp;
+                    <span>Log In</span>
+                </a>
+            </div>
+        </div>
+    </section>
+{% endblock %}
