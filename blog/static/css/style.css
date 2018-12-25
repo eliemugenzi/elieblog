@@ -143,6 +143,10 @@ nav .wrapper .toggle.hovered .line:nth-child(2) {
 .font__header {
   font-family: "Josefin Sans", sans-serif;
 }
+.link {
+  text-decoration: none;
+  color: #1a1a1a;
+}
 .link--with-icon {
   padding: 0.5rem 3rem;
   background: #e6e6e6;
@@ -240,6 +244,27 @@ input[type="submit"] {
   width: 100%;
   height: 100%;
 }
+#blog .post__category {
+  padding: .1rem 2rem;
+  background: #b71c1c;
+  color: #ffffff;
+  padding: 20px;
+  width: 30%;
+}
+@media (max-width: 768px) {
+  #blog .post__category {
+    display: block;
+  }
+  #blog .post__category span {
+    display: inline-block;
+    margin-bottom: 10px;
+  }
+}
+#blog .post__category strong {
+  margin-left: 15px;
+  text-transform: uppercase;
+  font-weight: 100;
+}
 #blog .post__desc {
   position: absolute;
   bottom: 0;
@@ -310,6 +335,9 @@ body {
 #home .intro {
   margin: auto;
 }
+#home .intro__video {
+  margin: 20px auto;
+}
 .posts__description {
   display: grid;
   grid-template-columns: 1fr 3fr;
@@ -328,6 +356,7 @@ body {
   margin: 25px auto;
   border: 1px solid #e6e6e6;
   padding: 20px;
+  overflow-x: hidden;
 }
 .posts__category {
   padding: 0.1rem 5rem;
@@ -339,6 +368,9 @@ body {
 @media (max-width: 768px) {
   .posts__category {
     float: none;
+    padding: 0.1rem 3rem;
+    position: relative;
+    width: 70%;
   }
 }
 .posts__category--text {
