@@ -5,7 +5,7 @@ CDBashApplet==1.0
 chardet==2.3.0
 command-not-found==0.3
 defer==1.0.6
-Django==1.10.5
+Django==1.11.29
 html5lib==0.999
 language-selector==0.1
 louis==2.6.4
